@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fteplus.transport.mapper.GoodsInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.fteplus.transport.entity.GoodsInfo" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="waybill_num" property="waybillNum" jdbcType="INTEGER" />
+    <result column="goods_name" property="goodsName" jdbcType="VARCHAR" />
+    <result column="goods_num" property="goodsNum" jdbcType="INTEGER" />
+    <result column="number" property="number" jdbcType="INTEGER" />
+    <result column="weight" property="weight" jdbcType="INTEGER" />
+    <result column="volume" property="volume" jdbcType="INTEGER" />
+    <result column="goods_value" property="goodsValue" jdbcType="DECIMAL" />
+    <result column="insurance" property="insurance" jdbcType="DECIMAL" />
+    <result column="count_way" property="countWay" jdbcType="VARCHAR" />
+    <result column="freight" property="freight" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, waybill_num, goods_name, goods_num, number, weight, volume, goods_value, insurance, 
+    count_way, freight
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from goods_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from goods_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fteplus.transport.entity.GoodsInfo" >
+    insert into goods_info (id, waybill_num, goods_name, 
+      goods_num, number, weight, 
+      volume, goods_value, insurance, 
+      count_way, freight)
+    values (#{id,jdbcType=INTEGER}, #{waybillNum,jdbcType=INTEGER}, #{goodsName,jdbcType=VARCHAR}, 
+      #{goodsNum,jdbcType=INTEGER}, #{number,jdbcType=INTEGER}, #{weight,jdbcType=INTEGER}, 
+      #{volume,jdbcType=INTEGER}, #{goodsValue,jdbcType=DECIMAL}, #{insurance,jdbcType=DECIMAL}, 
+      #{countWay,jdbcType=VARCHAR}, #{freight,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fteplus.transport.entity.GoodsInfo" >
+    insert into goods_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="waybillNum != null" >
+        waybill_num,
+      </if>
+      <if test="goodsName != null" >
+        goods_name,
+      </if>
+      <if test="goodsNum != null" >
+        goods_num,
+      </if>
+      <if test="number != null" >
+        number,
+      </if>
+      <if test="weight != null" >
+        weight,
+      </if>
+      <if test="volume != null" >
+        volume,
+      </if>
+      <if test="goodsValue != null" >
+        goods_value,
+      </if>
+      <if test="insurance != null" >
+        insurance,
+      </if>
+      <if test="countWay != null" >
+        count_way,
+      </if>
+      <if test="freight != null" >
+        freight,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="waybillNum != null" >
+        #{waybillNum,jdbcType=INTEGER},
+      </if>
+      <if test="goodsName != null" >
+        #{goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsNum != null" >
+        #{goodsNum,jdbcType=INTEGER},
+      </if>
+      <if test="number != null" >
+        #{number,jdbcType=INTEGER},
+      </if>
+      <if test="weight != null" >
+        #{weight,jdbcType=INTEGER},
+      </if>
+      <if test="volume != null" >
+        #{volume,jdbcType=INTEGER},
+      </if>
+      <if test="goodsValue != null" >
+        #{goodsValue,jdbcType=DECIMAL},
+      </if>
+      <if test="insurance != null" >
+        #{insurance,jdbcType=DECIMAL},
+      </if>
+      <if test="countWay != null" >
+        #{countWay,jdbcType=VARCHAR},
+      </if>
+      <if test="freight != null" >
+        #{freight,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fteplus.transport.entity.GoodsInfo" >
+    update goods_info
+    <set >
+      <if test="waybillNum != null" >
+        waybill_num = #{waybillNum,jdbcType=INTEGER},
+      </if>
+      <if test="goodsName != null" >
+        goods_name = #{goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsNum != null" >
+        goods_num = #{goodsNum,jdbcType=INTEGER},
+      </if>
+      <if test="number != null" >
+        number = #{number,jdbcType=INTEGER},
+      </if>
+      <if test="weight != null" >
+        weight = #{weight,jdbcType=INTEGER},
+      </if>
+      <if test="volume != null" >
+        volume = #{volume,jdbcType=INTEGER},
+      </if>
+      <if test="goodsValue != null" >
+        goods_value = #{goodsValue,jdbcType=DECIMAL},
+      </if>
+      <if test="insurance != null" >
+        insurance = #{insurance,jdbcType=DECIMAL},
+      </if>
+      <if test="countWay != null" >
+        count_way = #{countWay,jdbcType=VARCHAR},
+      </if>
+      <if test="freight != null" >
+        freight = #{freight,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fteplus.transport.entity.GoodsInfo" >
+    update goods_info
+    set waybill_num = #{waybillNum,jdbcType=INTEGER},
+      goods_name = #{goodsName,jdbcType=VARCHAR},
+      goods_num = #{goodsNum,jdbcType=INTEGER},
+      number = #{number,jdbcType=INTEGER},
+      weight = #{weight,jdbcType=INTEGER},
+      volume = #{volume,jdbcType=INTEGER},
+      goods_value = #{goodsValue,jdbcType=DECIMAL},
+      insurance = #{insurance,jdbcType=DECIMAL},
+      count_way = #{countWay,jdbcType=VARCHAR},
+      freight = #{freight,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

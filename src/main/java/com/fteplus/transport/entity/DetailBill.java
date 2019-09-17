@@ -1,0 +1,55 @@
+package com.fteplus.transport.entity;
+
+import java.util.Date;
+
+public class DetailBill {
+    private Integer id;
+
+    private String type;
+
+    private Integer billNum;
+
+    private String status;
+
+    private Date writeTime;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type == null ? null : type.trim();
+    }
+
+    public Integer getBillNum() {
+        return billNum;
+    }
+
+    public void setBillNum(Integer billNum) {
+        this.billNum = billNum;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status == null ? null : status.trim();
+    }
+
+    public Date getWriteTime() {
+        return writeTime;
+    }
+
+    public void setWriteTime(Date writeTime) {
+        this.writeTime = writeTime;
+    }
+}

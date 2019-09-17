@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fteplus.transport.mapper.DriverInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.fteplus.transport.entity.DriverInfo" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="licence" property="licence" jdbcType="VARCHAR" />
+    <result column="driving_licence" property="drivingLicence" jdbcType="VARCHAR" />
+    <result column="plate number" property="plateNumber" jdbcType="VARCHAR" />
+    <result column="capacity" property="capacity" jdbcType="INTEGER" />
+    <result column="start_place" property="startPlace" jdbcType="VARCHAR" />
+    <result column="end_place" property="endPlace" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, phone, licence, driving_licence, "plate number", capacity, start_place, 
+    end_place
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from driver_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from driver_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fteplus.transport.entity.DriverInfo" >
+    insert into driver_info (id, name, phone, 
+      licence, driving_licence, "plate number", 
+      capacity, start_place, end_place
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{licence,jdbcType=VARCHAR}, #{drivingLicence,jdbcType=VARCHAR}, #{plateNumber,jdbcType=VARCHAR}, 
+      #{capacity,jdbcType=INTEGER}, #{startPlace,jdbcType=VARCHAR}, #{endPlace,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.fteplus.transport.entity.DriverInfo" >
+    insert into driver_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="licence != null" >
+        licence,
+      </if>
+      <if test="drivingLicence != null" >
+        driving_licence,
+      </if>
+      <if test="plateNumber != null" >
+        "plate number",
+      </if>
+      <if test="capacity != null" >
+        capacity,
+      </if>
+      <if test="startPlace != null" >
+        start_place,
+      </if>
+      <if test="endPlace != null" >
+        end_place,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="licence != null" >
+        #{licence,jdbcType=VARCHAR},
+      </if>
+      <if test="drivingLicence != null" >
+        #{drivingLicence,jdbcType=VARCHAR},
+      </if>
+      <if test="plateNumber != null" >
+        #{plateNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null" >
+        #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="startPlace != null" >
+        #{startPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="endPlace != null" >
+        #{endPlace,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fteplus.transport.entity.DriverInfo" >
+    update driver_info
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="licence != null" >
+        licence = #{licence,jdbcType=VARCHAR},
+      </if>
+      <if test="drivingLicence != null" >
+        driving_licence = #{drivingLicence,jdbcType=VARCHAR},
+      </if>
+      <if test="plateNumber != null" >
+        "plate number" = #{plateNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null" >
+        capacity = #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="startPlace != null" >
+        start_place = #{startPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="endPlace != null" >
+        end_place = #{endPlace,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fteplus.transport.entity.DriverInfo" >
+    update driver_info
+    set name = #{name,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      licence = #{licence,jdbcType=VARCHAR},
+      driving_licence = #{drivingLicence,jdbcType=VARCHAR},
+      "plate number" = #{plateNumber,jdbcType=VARCHAR},
+      capacity = #{capacity,jdbcType=INTEGER},
+      start_place = #{startPlace,jdbcType=VARCHAR},
+      end_place = #{endPlace,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
