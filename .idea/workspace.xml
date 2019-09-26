@@ -282,7 +282,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="1105" />
     <option name="width" value="825" />
     <option name="height" value="1090" />
@@ -760,7 +760,7 @@
       <workItem from="1569046959132" duration="2619000" />
       <workItem from="1569374762111" duration="17944000" />
       <workItem from="1569458645850" duration="9522000" />
-      <workItem from="1569495690416" duration="1063000" />
+      <workItem from="1569495690416" duration="1796000" />
     </task>
     <task id="LOCAL-00001" summary="push:lzh&#10;time:2019/9/17 15.29&#10;message:搭建框架">
       <created>1568705423458</created>
@@ -805,7 +805,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62459000" />
+    <option name="totallyTimeSpent" value="63192000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -817,7 +817,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Image Layers" order="0" />
