@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="19bf0d1c-db96-4bec-bf9f-c09381b70a19" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/44c132ab-beec-4ef8-b4b3-0165a0503205.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/44c132ab-beec-4ef8-b4b3-0165a0503205.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fteplus/transport/TransportSystemApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fteplus/transport/TransportSystemApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fteplus/transport/entity/Bill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fteplus/transport/entity/Bill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fteplus/transport/entity/DetailBill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fteplus/transport/entity/DetailBill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fteplus/transport/mapper/BillMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fteplus/transport/mapper/BillMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fteplus/transport/mapper/DetailBillMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fteplus/transport/mapper/DetailBillMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapping/BillMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapping/BillMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapping/DetailBillMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapping/DetailBillMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapping/DriverInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapping/DriverInfoMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/transport-system.iml" beforeDir="false" afterPath="$PROJECT_DIR$/transport-system.iml" afterDir="false" />
-    </list>
+    <list default="true" id="19bf0d1c-db96-4bec-bf9f-c09381b70a19" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -282,7 +269,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="1105" />
     <option name="width" value="825" />
     <option name="height" value="1090" />
@@ -817,7 +804,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Image Layers" order="0" />
