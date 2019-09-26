@@ -8,6 +8,7 @@ server:
 
 ---
 
+
 spring:
      profiles: dev
      thymeleaf:
@@ -40,6 +41,18 @@ spring:
        connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
 
 
+
 mybatis:
   mapper-locations: classpath:mapping/*.xml
   type-aliases-package: com.fteplus.transport.entity
+
+#  日志打印层级为debug  显示sql语句
+logging:
+  level:
+    com.fteplus.transport: debug
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql

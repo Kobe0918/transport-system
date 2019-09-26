@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fteplus.transport.mapper.WaybillMapper" >
+  <resultMap id="BaseResultMap" type="com.fteplus.transport.entity.Waybill" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="waybill_num" property="waybillNum" jdbcType="INTEGER" />
+    <result column="consign_time" property="consignTime" jdbcType="TIMESTAMP" />
+    <result column="delivery_time" property="deliveryTime" jdbcType="TIMESTAMP" />
+    <result column="begin_place" property="beginPlace" jdbcType="VARCHAR" />
+    <result column="end_place" property="endPlace" jdbcType="VARCHAR" />
+    <result column="receiver_name" property="receiverName" jdbcType="VARCHAR" />
+    <result column="receiver_addr" property="receiverAddr" jdbcType="VARCHAR" />
+    <result column="receiver_phone" property="receiverPhone" jdbcType="VARCHAR" />
+    <result column="customer_name" property="customerName" jdbcType="VARCHAR" />
+    <result column="customer_phone" property="customerPhone" jdbcType="VARCHAR" />
+    <result column="customer_addr" property="customerAddr" jdbcType="VARCHAR" />
+    <result column="freight" property="freight" jdbcType="DECIMAL" />
+    <result column="insurance" property="insurance" jdbcType="DECIMAL" />
+    <result column="pay_way" property="payWay" jdbcType="VARCHAR" />
+    <result column="salesman" property="salesman" jdbcType="VARCHAR" />
+    <result column="rebates" property="rebates" jdbcType="DECIMAL" />
+    <result column="entry_person" property="entryPerson" jdbcType="VARCHAR" />
+    <result column="entry_time" property="entryTime" jdbcType="TIMESTAMP" />
+    <result column="note" property="note" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, waybill_num, consign_time, delivery_time, begin_place, end_place, receiver_name, 
+    receiver_addr, receiver_phone, customer_name, customer_phone, customer_addr, freight, 
+    insurance, pay_way, salesman, rebates, entry_person, entry_time, note, status
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from waybill
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from waybill
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fteplus.transport.entity.Waybill" >
+    insert into waybill (id, waybill_num, consign_time, 
+      delivery_time, begin_place, end_place, 
+      receiver_name, receiver_addr, receiver_phone, 
+      customer_name, customer_phone, customer_addr, 
+      freight, insurance, pay_way, 
+      salesman, rebates, entry_person, 
+      entry_time, note, status
+      )
+    values (#{id,jdbcType=INTEGER}, #{waybillNum,jdbcType=INTEGER}, #{consignTime,jdbcType=TIMESTAMP}, 
+      #{deliveryTime,jdbcType=TIMESTAMP}, #{beginPlace,jdbcType=VARCHAR}, #{endPlace,jdbcType=VARCHAR}, 
+      #{receiverName,jdbcType=VARCHAR}, #{receiverAddr,jdbcType=VARCHAR}, #{receiverPhone,jdbcType=VARCHAR}, 
+      #{customerName,jdbcType=VARCHAR}, #{customerPhone,jdbcType=VARCHAR}, #{customerAddr,jdbcType=VARCHAR}, 
+      #{freight,jdbcType=DECIMAL}, #{insurance,jdbcType=DECIMAL}, #{payWay,jdbcType=VARCHAR}, 
+      #{salesman,jdbcType=VARCHAR}, #{rebates,jdbcType=DECIMAL}, #{entryPerson,jdbcType=VARCHAR}, 
+      #{entryTime,jdbcType=TIMESTAMP}, #{note,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.fteplus.transport.entity.Waybill" >
+    insert into waybill
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="waybillNum != null" >
+        waybill_num,
+      </if>
+      <if test="consignTime != null" >
+        consign_time,
+      </if>
+      <if test="deliveryTime != null" >
+        delivery_time,
+      </if>
+      <if test="beginPlace != null" >
+        begin_place,
+      </if>
+      <if test="endPlace != null" >
+        end_place,
+      </if>
+      <if test="receiverName != null" >
+        receiver_name,
+      </if>
+      <if test="receiverAddr != null" >
+        receiver_addr,
+      </if>
+      <if test="receiverPhone != null" >
+        receiver_phone,
+      </if>
+      <if test="customerName != null" >
+        customer_name,
+      </if>
+      <if test="customerPhone != null" >
+        customer_phone,
+      </if>
+      <if test="customerAddr != null" >
+        customer_addr,
+      </if>
+      <if test="freight != null" >
+        freight,
+      </if>
+      <if test="insurance != null" >
+        insurance,
+      </if>
+      <if test="payWay != null" >
+        pay_way,
+      </if>
+      <if test="salesman != null" >
+        salesman,
+      </if>
+      <if test="rebates != null" >
+        rebates,
+      </if>
+      <if test="entryPerson != null" >
+        entry_person,
+      </if>
+      <if test="entryTime != null" >
+        entry_time,
+      </if>
+      <if test="note != null" >
+        note,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="waybillNum != null" >
+        #{waybillNum,jdbcType=INTEGER},
+      </if>
+      <if test="consignTime != null" >
+        #{consignTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deliveryTime != null" >
+        #{deliveryTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="beginPlace != null" >
+        #{beginPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="endPlace != null" >
+        #{endPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverName != null" >
+        #{receiverName,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverAddr != null" >
+        #{receiverAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverPhone != null" >
+        #{receiverPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="customerName != null" >
+        #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="customerPhone != null" >
+        #{customerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="customerAddr != null" >
+        #{customerAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="freight != null" >
+        #{freight,jdbcType=DECIMAL},
+      </if>
+      <if test="insurance != null" >
+        #{insurance,jdbcType=DECIMAL},
+      </if>
+      <if test="payWay != null" >
+        #{payWay,jdbcType=VARCHAR},
+      </if>
+      <if test="salesman != null" >
+        #{salesman,jdbcType=VARCHAR},
+      </if>
+      <if test="rebates != null" >
+        #{rebates,jdbcType=DECIMAL},
+      </if>
+      <if test="entryPerson != null" >
+        #{entryPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="entryTime != null" >
+        #{entryTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="note != null" >
+        #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fteplus.transport.entity.Waybill" >
+    update waybill
+    <set >
+      <if test="waybillNum != null" >
+        waybill_num = #{waybillNum,jdbcType=INTEGER},
+      </if>
+      <if test="consignTime != null" >
+        consign_time = #{consignTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deliveryTime != null" >
+        delivery_time = #{deliveryTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="beginPlace != null" >
+        begin_place = #{beginPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="endPlace != null" >
+        end_place = #{endPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverName != null" >
+        receiver_name = #{receiverName,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverAddr != null" >
+        receiver_addr = #{receiverAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverPhone != null" >
+        receiver_phone = #{receiverPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="customerName != null" >
+        customer_name = #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="customerPhone != null" >
+        customer_phone = #{customerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="customerAddr != null" >
+        customer_addr = #{customerAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="freight != null" >
+        freight = #{freight,jdbcType=DECIMAL},
+      </if>
+      <if test="insurance != null" >
+        insurance = #{insurance,jdbcType=DECIMAL},
+      </if>
+      <if test="payWay != null" >
+        pay_way = #{payWay,jdbcType=VARCHAR},
+      </if>
+      <if test="salesman != null" >
+        salesman = #{salesman,jdbcType=VARCHAR},
+      </if>
+      <if test="rebates != null" >
+        rebates = #{rebates,jdbcType=DECIMAL},
+      </if>
+      <if test="entryPerson != null" >
+        entry_person = #{entryPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="entryTime != null" >
+        entry_time = #{entryTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="note != null" >
+        note = #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fteplus.transport.entity.Waybill" >
+    update waybill
+    set waybill_num = #{waybillNum,jdbcType=INTEGER},
+      consign_time = #{consignTime,jdbcType=TIMESTAMP},
+      delivery_time = #{deliveryTime,jdbcType=TIMESTAMP},
+      begin_place = #{beginPlace,jdbcType=VARCHAR},
+      end_place = #{endPlace,jdbcType=VARCHAR},
+      receiver_name = #{receiverName,jdbcType=VARCHAR},
+      receiver_addr = #{receiverAddr,jdbcType=VARCHAR},
+      receiver_phone = #{receiverPhone,jdbcType=VARCHAR},
+      customer_name = #{customerName,jdbcType=VARCHAR},
+      customer_phone = #{customerPhone,jdbcType=VARCHAR},
+      customer_addr = #{customerAddr,jdbcType=VARCHAR},
+      freight = #{freight,jdbcType=DECIMAL},
+      insurance = #{insurance,jdbcType=DECIMAL},
+      pay_way = #{payWay,jdbcType=VARCHAR},
+      salesman = #{salesman,jdbcType=VARCHAR},
+      rebates = #{rebates,jdbcType=DECIMAL},
+      entry_person = #{entryPerson,jdbcType=VARCHAR},
+      entry_time = #{entryTime,jdbcType=TIMESTAMP},
+      note = #{note,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

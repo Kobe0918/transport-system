@@ -2,6 +2,8 @@ package com.fteplus.transport.mapper;
 
 import com.fteplus.transport.entity.DetailBill;
 
+import java.util.List;
+
 public interface DetailBillMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -14,4 +16,6 @@ public interface DetailBillMapper {
     int updateByPrimaryKeySelective(DetailBill record);
 
     int updateByPrimaryKey(DetailBill record);
+
+    int insertCollection(List<DetailBill> list);
 }

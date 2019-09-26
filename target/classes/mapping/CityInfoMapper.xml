@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fteplus.transport.mapper.CityInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.fteplus.transport.entity.CityInfo" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="main_city" property="mainCity" jdbcType="VARCHAR" />
+    <result column="around_city" property="aroundCity" jdbcType="VARCHAR" />
+    <result column="mileage" property="mileage" jdbcType="INTEGER" />
+    <result column="event" property="event" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, main_city, around_city, mileage, event
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from city_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from city_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fteplus.transport.entity.CityInfo" >
+    insert into city_info (id, main_city, around_city, 
+      mileage, event)
+    values (#{id,jdbcType=INTEGER}, #{mainCity,jdbcType=VARCHAR}, #{aroundCity,jdbcType=VARCHAR}, 
+      #{mileage,jdbcType=INTEGER}, #{event,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fteplus.transport.entity.CityInfo" >
+    insert into city_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="mainCity != null" >
+        main_city,
+      </if>
+      <if test="aroundCity != null" >
+        around_city,
+      </if>
+      <if test="mileage != null" >
+        mileage,
+      </if>
+      <if test="event != null" >
+        event,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="mainCity != null" >
+        #{mainCity,jdbcType=VARCHAR},
+      </if>
+      <if test="aroundCity != null" >
+        #{aroundCity,jdbcType=VARCHAR},
+      </if>
+      <if test="mileage != null" >
+        #{mileage,jdbcType=INTEGER},
+      </if>
+      <if test="event != null" >
+        #{event,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fteplus.transport.entity.CityInfo" >
+    update city_info
+    <set >
+      <if test="mainCity != null" >
+        main_city = #{mainCity,jdbcType=VARCHAR},
+      </if>
+      <if test="aroundCity != null" >
+        around_city = #{aroundCity,jdbcType=VARCHAR},
+      </if>
+      <if test="mileage != null" >
+        mileage = #{mileage,jdbcType=INTEGER},
+      </if>
+      <if test="event != null" >
+        event = #{event,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fteplus.transport.entity.CityInfo" >
+    update city_info
+    set main_city = #{mainCity,jdbcType=VARCHAR},
+      around_city = #{aroundCity,jdbcType=VARCHAR},
+      mileage = #{mileage,jdbcType=INTEGER},
+      event = #{event,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

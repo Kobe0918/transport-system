@@ -23,7 +23,23 @@ public class Bill {
 
     private String type;
 
-    private Date writeTime;
+    private Date writeTime = new Date();
+
+    public Bill() {
+    }
+
+    public Bill(Integer beginNum, Integer endNum, String receiver, String receiverPhone, String distributePerson, String distributePersionPhone, String receivePlace, Date receiveTime, String type, Date writeTime) {
+        this.beginNum = beginNum;
+        this.endNum = endNum;
+        this.receiver = receiver;
+        this.receiverPhone = receiverPhone;
+        this.distributePerson = distributePerson;
+        this.distributePersionPhone = distributePersionPhone;
+        this.receivePlace = receivePlace;
+        this.receiveTime = receiveTime;
+        this.type = type;
+        this.writeTime = writeTime;
+    }
 
     public Integer getId() {
         return id;

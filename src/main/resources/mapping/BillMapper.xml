@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.fteplus.transport.mapper.BillMapper" >
-  <resultMap id="BaseResultMap" type="com.fteplus.transport.entity.Bill" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="begin_num" property="beginNum" jdbcType="INTEGER" />
-    <result column="end_num" property="endNum" jdbcType="INTEGER" />
-    <result column="receiver" property="receiver" jdbcType="VARCHAR" />
-    <result column="receiver_phone" property="receiverPhone" jdbcType="VARCHAR" />
-    <result column="distribute_person" property="distributePerson" jdbcType="VARCHAR" />
-    <result column="distribute_persion_phone" property="distributePersionPhone" jdbcType="VARCHAR" />
-    <result column="receive_place" property="receivePlace" jdbcType="VARCHAR" />
-    <result column="receive_time" property="receiveTime" jdbcType="TIMESTAMP" />
-    <result column="type" property="type" jdbcType="VARCHAR" />
-    <result column="write_time" property="writeTime" jdbcType="TIMESTAMP" />
-  </resultMap>
-  <sql id="Base_Column_List" >
+<mapper namespace="com.fteplus.transport.mapper.BillMapper">
+    <resultMap id="BaseResultMap" type="com.fteplus.transport.entity.Bill">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="begin_num" property="beginNum" jdbcType="INTEGER"/>
+        <result column="end_num" property="endNum" jdbcType="INTEGER"/>
+        <result column="receiver" property="receiver" jdbcType="VARCHAR"/>
+        <result column="receiver_phone" property="receiverPhone" jdbcType="VARCHAR"/>
+        <result column="distribute_person" property="distributePerson" jdbcType="VARCHAR"/>
+        <result column="distribute_persion_phone" property="distributePersionPhone" jdbcType="VARCHAR"/>
+        <result column="receive_place" property="receivePlace" jdbcType="VARCHAR"/>
+        <result column="receive_time" property="receiveTime" jdbcType="TIMESTAMP"/>
+        <result column="type" property="type" jdbcType="VARCHAR"/>
+        <result column="write_time" property="writeTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    <sql id="Base_Column_List">
     id, begin_num, end_num, receiver, receiver_phone, distribute_person, distribute_persion_phone, 
     receive_place, receive_time, type, write_time
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from bill
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from bill
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from bill
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.fteplus.transport.entity.Bill" >
+    <insert id="insert" parameterType="com.fteplus.transport.entity.Bill">
     insert into bill (id, begin_num, end_num, 
       receiver, receiver_phone, distribute_person, 
       distribute_persion_phone, receive_place, receive_time, 
@@ -38,116 +38,117 @@
       #{distributePersionPhone,jdbcType=VARCHAR}, #{receivePlace,jdbcType=VARCHAR}, #{receiveTime,jdbcType=TIMESTAMP}, 
       #{type,jdbcType=VARCHAR}, #{writeTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.fteplus.transport.entity.Bill" >
-    insert into bill
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
-      <if test="beginNum != null" >
-        begin_num,
-      </if>
-      <if test="endNum != null" >
-        end_num,
-      </if>
-      <if test="receiver != null" >
-        receiver,
-      </if>
-      <if test="receiverPhone != null" >
-        receiver_phone,
-      </if>
-      <if test="distributePerson != null" >
-        distribute_person,
-      </if>
-      <if test="distributePersionPhone != null" >
-        distribute_persion_phone,
-      </if>
-      <if test="receivePlace != null" >
-        receive_place,
-      </if>
-      <if test="receiveTime != null" >
-        receive_time,
-      </if>
-      <if test="type != null" >
-        type,
-      </if>
-      <if test="writeTime != null" >
-        write_time,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="beginNum != null" >
-        #{beginNum,jdbcType=INTEGER},
-      </if>
-      <if test="endNum != null" >
-        #{endNum,jdbcType=INTEGER},
-      </if>
-      <if test="receiver != null" >
-        #{receiver,jdbcType=VARCHAR},
-      </if>
-      <if test="receiverPhone != null" >
-        #{receiverPhone,jdbcType=VARCHAR},
-      </if>
-      <if test="distributePerson != null" >
-        #{distributePerson,jdbcType=VARCHAR},
-      </if>
-      <if test="distributePersionPhone != null" >
-        #{distributePersionPhone,jdbcType=VARCHAR},
-      </if>
-      <if test="receivePlace != null" >
-        #{receivePlace,jdbcType=VARCHAR},
-      </if>
-      <if test="receiveTime != null" >
-        #{receiveTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="type != null" >
-        #{type,jdbcType=VARCHAR},
-      </if>
-      <if test="writeTime != null" >
-        #{writeTime,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.fteplus.transport.entity.Bill" >
-    update bill
-    <set >
-      <if test="beginNum != null" >
-        begin_num = #{beginNum,jdbcType=INTEGER},
-      </if>
-      <if test="endNum != null" >
-        end_num = #{endNum,jdbcType=INTEGER},
-      </if>
-      <if test="receiver != null" >
-        receiver = #{receiver,jdbcType=VARCHAR},
-      </if>
-      <if test="receiverPhone != null" >
-        receiver_phone = #{receiverPhone,jdbcType=VARCHAR},
-      </if>
-      <if test="distributePerson != null" >
-        distribute_person = #{distributePerson,jdbcType=VARCHAR},
-      </if>
-      <if test="distributePersionPhone != null" >
-        distribute_persion_phone = #{distributePersionPhone,jdbcType=VARCHAR},
-      </if>
-      <if test="receivePlace != null" >
-        receive_place = #{receivePlace,jdbcType=VARCHAR},
-      </if>
-      <if test="receiveTime != null" >
-        receive_time = #{receiveTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="type != null" >
-        type = #{type,jdbcType=VARCHAR},
-      </if>
-      <if test="writeTime != null" >
-        write_time = #{writeTime,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.fteplus.transport.entity.Bill" >
+    <!--只存储有值的字段-->
+    <insert id="insertSelective" parameterType="com.fteplus.transport.entity.Bill">
+        insert into bill
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="beginNum != null">
+                begin_num,
+            </if>
+            <if test="endNum != null">
+                end_num,
+            </if>
+            <if test="receiver != null">
+                receiver,
+            </if>
+            <if test="receiverPhone != null">
+                receiver_phone,
+            </if>
+            <if test="distributePerson != null">
+                distribute_person,
+            </if>
+            <if test="distributePersionPhone != null">
+                distribute_persion_phone,
+            </if>
+            <if test="receivePlace != null">
+                receive_place,
+            </if>
+            <if test="receiveTime != null">
+                receive_time,
+            </if>
+            <if test="type != null">
+                type,
+            </if>
+            <if test="writeTime != null">
+                write_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="beginNum != null">
+                #{beginNum,jdbcType=INTEGER},
+            </if>
+            <if test="endNum != null">
+                #{endNum,jdbcType=INTEGER},
+            </if>
+            <if test="receiver != null">
+                #{receiver,jdbcType=VARCHAR},
+            </if>
+            <if test="receiverPhone != null">
+                #{receiverPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="distributePerson != null">
+                #{distributePerson,jdbcType=VARCHAR},
+            </if>
+            <if test="distributePersionPhone != null">
+                #{distributePersionPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="receivePlace != null">
+                #{receivePlace,jdbcType=VARCHAR},
+            </if>
+            <if test="receiveTime != null">
+                #{receiveTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=VARCHAR},
+            </if>
+            <if test="writeTime != null">
+                #{writeTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.fteplus.transport.entity.Bill">
+        update bill
+        <set>
+            <if test="beginNum != null">
+                begin_num = #{beginNum,jdbcType=INTEGER},
+            </if>
+            <if test="endNum != null">
+                end_num = #{endNum,jdbcType=INTEGER},
+            </if>
+            <if test="receiver != null">
+                receiver = #{receiver,jdbcType=VARCHAR},
+            </if>
+            <if test="receiverPhone != null">
+                receiver_phone = #{receiverPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="distributePerson != null">
+                distribute_person = #{distributePerson,jdbcType=VARCHAR},
+            </if>
+            <if test="distributePersionPhone != null">
+                distribute_persion_phone = #{distributePersionPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="receivePlace != null">
+                receive_place = #{receivePlace,jdbcType=VARCHAR},
+            </if>
+            <if test="receiveTime != null">
+                receive_time = #{receiveTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="type != null">
+                type = #{type,jdbcType=VARCHAR},
+            </if>
+            <if test="writeTime != null">
+                write_time = #{writeTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.fteplus.transport.entity.Bill">
     update bill
     set begin_num = #{beginNum,jdbcType=INTEGER},
       end_num = #{endNum,jdbcType=INTEGER},
@@ -161,4 +162,21 @@
       write_time = #{writeTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+    <select id="insertBillAndBillDetail" statementType="CALLABLE">
+    {call bill_insert_procedure(
+                              #{beginNum,mode = IN, jdbcType = INTEGER},
+                              #{endNum,mode = IN, jdbcType = INTEGER},
+                              #{receiver,mode = IN,jdbcType = VARCHAR},
+                              #{receiverPhone,mode = IN,jdbcType = VARCHAR},
+                              #{receivePlace,mode = IN,jdbcType = VARCHAR},
+                              #{distributePerson,mode = IN,jdbcType = VARCHAR},
+                              #{distributePersionPhone,mode = IN,jdbcType = VARCHAR},
+                              #{receiveTime,mode = IN,jdbcType = TIMESTAMP},
+                              #{type,mode = IN, jdbcType = VARCHAR },
+                              #{writeTime,mode = IN,jdbcType = TIMESTAMP},
+                              #{status,mode = IN, jdbcType = VARCHAR },
+                              #{result,mode = OUT, jdbcType = INTEGER})
+    }
+  </select>
 </mapper>

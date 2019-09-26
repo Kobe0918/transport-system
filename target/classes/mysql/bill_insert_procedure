@@ -1,0 +1,49 @@
+
+DELIMITER $$
+
+CREATE PROCEDURE `transport-system`.`bill_insert_procedure`(IN v_beginNum INT ,IN v_endNum INT, IN v_receiver VARCHAR(200), IN v_receiverPhone VARCHAR(200), IN v_receivePlace VARCHAR(200),
+                                                  IN v_distributePerson VARCHAR(200), IN v_distributePersionPhone VARCHAR(200), IN v_receiveTime TIMESTAMP, IN v_type VARCHAR(200),
+                                                  IN v_writeTime TIMESTAMP, IN v_status VARCHAR(200), OUT v_result INT)
+   BEGIN
+    DECLARE insert_count  INT default 0;
+    DECLARE iterator_count  INT default 0;
+    START TRANSACTION ;
+    INSERT INTO
+            bill(`begin_num`,`end_num`,`receiver`,`receiver_phone`,`distribute_person`,`distribute_persion_phone`,`receive_place`,`receive_time`,`type`,`write_time`)
+    VALUES(
+           v_beginNum,v_endNum,v_receiver,v_receiverPhone,v_distributePerson,v_distributePersionPhone,v_receivePlace,v_receiveTime,v_type,v_writeTime);
+    SELECT ROW_COUNT() INTO insert_count;
+    IF (insert_count = 0) THEN
+        ROLLBACK ;
+        SET v_result = -2;
+      ELSEIF (insert_count < 0) THEN
+        ROLLBACK ;
+        SET v_result = -3;
+     ELSE
+       SET iterator_count = v_beginNum;
+       WHILE iterator_count <  v_endNum DO
+         INSERT INTO
+              detail_bill(`type`,`bill_num`,`status`,`write_time`)
+         VALUES(
+                 v_type,iterator_count,v_status,v_writeTime);
+         SET iterator_count = iterator_count + 1;
+       END WHILE;
+        SELECT ROW_COUNT() INTO insert_count;
+          IF (insert_count = 0) THEN
+            ROLLBACK ;
+            SET v_result = -2;
+          ELSEIF (insert_count < 0) THEN
+            ROLLBACK ;
+            SET v_result = -3;
+          ELSE
+            COMMIT ;
+            SET v_result = 1;
+        END IF;
+    END IF;
+   END;
+$$
+
+DELIMITER ;
+set @v_result = -3;
+-- 执行存储过程
+call   bill_insert_procedure(1,3,'lh','12','pt','lz','ss',CURRENT_DATE,'s',CURRENT_DATE,'s', @v_result);

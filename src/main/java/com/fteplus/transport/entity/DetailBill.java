@@ -9,9 +9,18 @@ public class DetailBill {
 
     private Integer billNum;
 
-    private String status;
+    private String status = "已填";
 
-    private Date writeTime;
+    private Date writeTime = new Date();
+
+    public DetailBill() {
+    }
+
+    public DetailBill(String type, Integer billNum) {
+        this.type = type;
+        this.billNum = billNum;
+
+    }
 
     public Integer getId() {
         return id;
